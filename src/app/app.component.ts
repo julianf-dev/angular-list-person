@@ -17,19 +17,9 @@ export class AppComponent {
       new Persona('Alejandra','Franco')
     ];
 
-
-  nameInput = '';
-  lastNameInput ='';
-
-  addPerson(){
-    let person = new Persona(this.nameInput, this.lastNameInput);
-    let personita = {
-      firstName: this.nameInput,
-      lastName: this.lastNameInput
+    addPerson(persona: Persona){
+      this.personas.push(persona);
     }
 
-    this.personas.push(person)
-    this.people.push(personita)
-    console.log(this.people)
-  }
+
 }
