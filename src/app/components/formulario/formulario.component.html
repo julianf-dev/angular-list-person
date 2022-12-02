@@ -1,13 +1,14 @@
 <form class="row gy-2">
   <div class="form-group col-md-2">
     <label for="Name" class="visually-hidden">Name</label>
+    <!--Local referecne-->
     <input
       type="text"
       name="Name"
       id="Name"
       placeholder="Name"
       class="form-control"
-      [(ngModel)]="nameInput"
+      #nameInput
     />
   </div>
   <div class="form-group col-md-2">
@@ -22,7 +23,7 @@
     />
   </div>
   <div class="col">
-    <button type="submit" class="btn btn-primary" (click)="addPerson()">
+    <button type="submit" class="btn btn-primary" (click)="addPerson(nameInput)">
       Agregar
     </button>
   </div>
