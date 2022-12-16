@@ -3,6 +3,13 @@
     <div>
       <span>{{ indice + 1 }}: </span>
       <span>{{ persona.nombre }} {{ persona.apellido }}</span>
+      <button
+      type="submit"
+      class="btn btn-info"
+      (click)="emitirSaludo()"
+      >
+        Editar
+      </button>
     </div>
     <!-- <div class="col-6">
       <h4>Personas con objetos</h4>

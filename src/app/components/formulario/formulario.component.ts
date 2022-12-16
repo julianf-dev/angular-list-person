@@ -16,6 +16,9 @@ export class FormularioComponent {
 
   constructor(private logginService: LogginService,
     private personaServices: PersonaServices) {
+      this.personaServices.saludar.subscribe(
+        (indice: number)=> alert(`el indice es ${indice}`)
+      )
   }
 
   /* nameInput = ''; */
