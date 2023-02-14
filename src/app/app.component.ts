@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Persona } from './persona.model';
-import { Person } from './interfaces/person.model';
-import { LogginService } from './clases/LogginServices/LoginServices.service';
-import { PersonaServices } from './clases/PersonasServices/persona.services';
+import { PersonaServices } from './services/persona.services';
 
 @Component({
   selector: 'app-root',
@@ -10,13 +8,15 @@ import { PersonaServices } from './clases/PersonasServices/persona.services';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+
   title = 'Listado Persona';
   personas: Persona[] = []
 
-  constructor(private loginServices: LogginService,
-    private personaServices: PersonaServices) {
-
+  constructor(private personaServices: PersonaServices) {
   }
+
+  //Se ejecuta despues de que se ha ejecutado el constructor. Ya que ya se ha inyectado el servcio
+
   ngOnInit(): void {
     this.personas = this.personaServices.personas;
   }

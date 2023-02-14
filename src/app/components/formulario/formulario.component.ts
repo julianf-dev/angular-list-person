@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { LogginService } from 'src/app/clases/LogginServices/LoginServices.service';
-import { PersonaServices } from 'src/app/clases/PersonasServices/persona.services';
+import { PersonaServices } from 'src/app/services/persona.services';
 import { Persona } from '../../persona.model';
 
 @Component({
@@ -11,21 +10,22 @@ import { Persona } from '../../persona.model';
 
 export class FormularioComponent {
 
-  /* Con el objecto EventEmmiter se propaga al padre */
+  /* Con el objecto EventEmmiter se propaga al padre
+  como usamos el servicio ya no necesitamos el output */
   /*   @Output() newPerson = new EventEmitter<Persona>(); */
 
-  constructor(private logginService: LogginService,
+  constructor(
     private personaServices: PersonaServices) {
       this.personaServices.saludar.subscribe(
-        (indice: number)=> alert(`el indice es ${indice}`)
+        (indice: number) => alert(`el indice es ${indice}`)
       )
   }
 
-  /* nameInput = ''; */
-  lastNameInput = '';
+  nameInput:string = '';
+  lastNameInput:string = '';
 
-  addPerson(nameInput: HTMLInputElement) {
-    let person = new Persona(nameInput.value, this.lastNameInput);
+  addPerson() {
+    let person = new Persona(this.nameInput, this.lastNameInput);
     this.personaServices.addPerson(person)
     // this.newPerson.emit(person)
     /*

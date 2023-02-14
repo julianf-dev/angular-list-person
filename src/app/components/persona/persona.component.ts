@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { PersonaServices } from 'src/app/clases/PersonasServices/persona.services';
+import { PersonaServices } from 'src/app/services/persona.services';
 import { Persona } from '../../persona.model';
 
 @Component({

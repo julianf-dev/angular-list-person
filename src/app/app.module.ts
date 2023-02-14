@@ -5,8 +5,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { PersonaComponent } from './components/persona/persona.component';
 import { FormularioComponent } from './components/formulario/formulario.component';
-import { LogginService } from './clases/LogginServices/LoginServices.service';
-import { PersonaServices } from './clases/PersonasServices/persona.services';
+import { LogginService } from './services/LoginServices.service';
+import { PersonaServices } from './services/persona.services';
 
 @NgModule({
   declarations: [

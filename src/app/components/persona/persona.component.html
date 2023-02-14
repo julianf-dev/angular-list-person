@@ -1,24 +1,14 @@
-<div class="container">
-  <div class="row py-2">
-    <div>
-      <span>{{ indice + 1 }}: </span>
-      <span>{{ persona.nombre }} {{ persona.apellido }}</span>
-      <button
-      type="submit"
-      class="btn btn-info"
-      (click)="emitirSaludo()"
-      >
-        Editar
-      </button>
-    </div>
-    <!-- <div class="col-6">
+<div class="item">
+  <input type="checkbox" (click)="emitirSaludo()" />
+  <p>{{ indice + 1 }}: </p>
+  <p>{{ persona.nombre }} {{ persona.apellido }}</p>
+</div>
+<!-- <div class="col-6">
       <h4>Personas con objetos</h4>
       <div *ngFor="let persona of people; let i = index">
         <div class="">
-          <span>{{ i + 1 }}: </span>
-          <span>{{ persona.firstName }} {{ persona.lastName }}</span>
+          <p>{{ i + 1 }}: </p>
+          <p>{{ persona.firstName }} {{ persona.lastName }}</p>
         </div>
       </div>
     </div> -->
-  </div>
-</div>
