@@ -1,14 +1,4 @@
 <div class="box" id="heading">
   <h1>{{ title }}</h1>
 </div>
-<div class="box">
-  <app-persona
-    *ngFor="let personaElement of personas; let i = index"
-    [persona]="personaElement"
-    [indice]="i"
-    firstName="Name"
-  ></app-persona>
-</div>
-<div class="box">
-  <app-formulario></app-formulario>
-</div>
+<router-outlet></router-outlet>
