@@ -1,10 +1,14 @@
-<form class="item">
+<div class="box">
+  <form class="form-group pt-2 pb-2 pe-3 ps-3 d-flex flex-column align-items-center"
+  #f="ngForm" (ngSubmit)="f.form.valid && addPerson()">
     <input
       type="text"
       name="Name"
       id="Name"
       placeholder="Name"
+      class="form-control"
       [(ngModel)]="nameInput"
+      required
     />
     <input
       type="text"
@@ -13,10 +17,10 @@
       placeholder="LastName"
       class="form-control"
       [(ngModel)]="lastNameInput"
+      required
     />
-    <button
-    type="submit"
-    (click)="addPerson()">
-      +
+    <button type="submit" class=" btn btn-primary">
+      Agregar nueva persona
     </button>
-</form>
+  </form>
+</div>

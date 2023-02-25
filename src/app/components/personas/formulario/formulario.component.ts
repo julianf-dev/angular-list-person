@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { PersonaServices } from 'src/app/services/persona.services';
 import { Persona } from '../../../persona.model';
 
@@ -15,7 +16,8 @@ export class FormularioComponent {
   /*   @Output() newPerson = new EventEmitter<Persona>(); */
 
   constructor(
-    private personaServices: PersonaServices) {
+    private personaServices: PersonaServices,
+    private router: Router) {
       this.personaServices.saludar.subscribe(
         (indice: number) => alert(`el indice es ${indice}`)
       )
@@ -27,7 +29,7 @@ export class FormularioComponent {
   addPerson() {
     let person = new Persona(this.nameInput, this.lastNameInput);
     this.personaServices.addPerson(person)
-    // this.newPerson.emit(person)
+    this.router.navigate(['personas'])
     /*
         this.personas.push(person)
         this.people.push(personita)
