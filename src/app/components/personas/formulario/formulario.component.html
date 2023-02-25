@@ -20,7 +20,10 @@
       required
     />
     <button type="submit" class=" btn btn-primary">
-      Agregar nueva persona
+      <p *ngIf="!isEdit; else templateElse">Agregar nueva persona</p>
+      <ng-template #templateElse>
+        <p >Editar persona</p>
+      </ng-template>
     </button>
   </form>
 </div>

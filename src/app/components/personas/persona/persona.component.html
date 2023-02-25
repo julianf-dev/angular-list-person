@@ -1,7 +1,11 @@
 <div class="item">
-  <input type="checkbox" (click)="emitirSaludo()" />
-  <p>{{ indice + 1 }}: </p>
-  <p>{{ persona.nombre }} {{ persona.apellido }}</p>
+  <ul>
+    <li>
+      <a [routerLink]="['/personas',indice]">
+        <p>{{ persona.nombre }} {{ persona.apellido }}</p>
+      </a>
+    </li>
+  </ul>
 </div>
 <!-- <div class="col-6">
       <h4>Personas con objetos</h4>

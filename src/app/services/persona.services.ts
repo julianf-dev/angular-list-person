@@ -20,4 +20,15 @@ export class PersonaServices {
     this.personas.push(persona);
     this.loginServices.sendMessage(`Persona enviada ${persona.nombre}`)
   }
+
+  foundPerson(index:number){
+    let person: Persona = this.personas[index];
+    return person
+  }
+
+  editPerson(index:number, persona:Persona){
+    let editPersona = this.personas[index];
+    editPersona.nombre = persona.nombre;
+    editPersona.apellido = persona.apellido;
+  }
 };

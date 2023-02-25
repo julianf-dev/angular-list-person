@@ -54,8 +54,11 @@ p {
   border: none;
   border-radius: 50%;
   background-color: #3F51B5;
-  color: #fff;
   font-size: 30px;
+  > p{
+    padding:  0 !important;
+    color: #ffffff !important;
+  }
 }
 
 input[type="text"] {
@@ -92,4 +95,12 @@ input[type="text"]:focus {
   border-radius: 50% !important;
   padding: 0 !important;
   font-size: 18px !important;
+}
+
+ul{
+  list-style: none;
+}
+
+a{
+  text-decoration: none !important;
 }

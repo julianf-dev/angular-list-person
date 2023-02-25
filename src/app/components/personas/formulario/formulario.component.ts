@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PersonaServices } from 'src/app/services/persona.services';
 import { Persona } from '../../../persona.model';
 
@@ -17,7 +17,8 @@ export class FormularioComponent {
 
   constructor(
     private personaServices: PersonaServices,
-    private router: Router) {
+    private router: Router,
+    private route: ActivatedRoute) {
       this.personaServices.saludar.subscribe(
         (indice: number) => alert(`el indice es ${indice}`)
       )
@@ -25,10 +26,27 @@ export class FormularioComponent {
 
   nameInput:string = '';
   lastNameInput:string = '';
+  index: number;
+  isEdit:boolean = false
 
+  ngOnInit(){
+    this.index = this.route.snapshot.params['id']
+    if(this.index){
+      let person:Persona = this.personaServices.foundPerson(this.index);
+      this.nameInput = person.nombre;
+      this.lastNameInput = person.apellido
+      this.isEdit = true;
+    }
+  }
   addPerson() {
     let person = new Persona(this.nameInput, this.lastNameInput);
-    this.personaServices.addPerson(person)
+    if(this.index){
+      this.personaServices.editPerson(this.index, person)
+    }else{
+      this.personaServices.addPerson(person)
+      this.nameInput = ''
+      this.lastNameInput = ''
+    }
     this.router.navigate(['personas'])
     /*
         this.personas.push(person)
