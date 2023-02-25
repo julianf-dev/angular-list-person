@@ -50,8 +50,7 @@ p {
 
 
 .btn {
-  width: 70%;
-  border: none;
+  border: none !important;
   border-radius: 50%;
   background-color: #3F51B5;
   font-size: 30px;
@@ -103,4 +102,16 @@ ul{
 
 a{
   text-decoration: none !important;
+}
+
+.form-buttons{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+
+.btn-red{
+  background: #FF0000 !important;
 }

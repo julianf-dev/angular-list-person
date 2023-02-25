@@ -1,6 +1,9 @@
 <div class="box">
-  <form class="form-group pt-2 pb-2 pe-3 ps-3 d-flex flex-column align-items-center"
-  #f="ngForm" (ngSubmit)="f.form.valid && addPerson()">
+  <form
+    class="form-group pt-2 pb-2 pe-3 ps-3 d-flex flex-column align-items-center"
+    #f="ngForm"
+    (ngSubmit)="f.form.valid && addPerson()"
+  >
     <input
       type="text"
       name="Name"
@@ -19,11 +22,21 @@
       [(ngModel)]="lastNameInput"
       required
     />
-    <button type="submit" class=" btn btn-primary">
-      <p *ngIf="!isEdit; else templateElse">Agregar nueva persona</p>
-      <ng-template #templateElse>
-        <p >Editar persona</p>
-      </ng-template>
-    </button>
+    <div class="form-buttons">
+      <button type="submit" class="btn btn-primary">
+        <p *ngIf="!isEdit; else templateElse">Agregar nueva persona</p>
+        <ng-template #templateElse>
+          <p>Editar persona</p>
+        </ng-template>
+      </button>
+      <button
+        *ngIf="index != null"
+        type="submit"
+        class="btn btn-primary btn-red"
+        (click)="onDeletePerson()"
+      >
+        <p>Borrar persona</p>
+      </button>
+    </div>
   </form>
 </div>

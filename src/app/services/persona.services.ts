@@ -31,4 +31,8 @@ export class PersonaServices {
     editPersona.nombre = persona.nombre;
     editPersona.apellido = persona.apellido;
   }
+
+  onDelete(index:number){
+    this.personas.splice(index,1);
+  }
 };

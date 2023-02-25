@@ -54,5 +54,14 @@ export class FormularioComponent {
         console.log(this.people) */
   }
 
+  onDeletePerson(){
+    if(this.index != null){
+      this.personaServices.onDelete(this.index)
+    }
+    this.router.navigate(['personas'])
+
+  }
+
+
 
 }
