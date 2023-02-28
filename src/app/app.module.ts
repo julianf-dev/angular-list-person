@@ -4,17 +4,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { PersonasModule } from './components/personas/personas.module';
 import { LogginService } from './services/LoginServices.service';
 import { PersonaServices } from './services/persona.services';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
-    PersonasModule,
     AppRoutingModule,
     FormsModule
   ],
