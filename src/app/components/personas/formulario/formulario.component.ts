@@ -27,20 +27,23 @@ export class FormularioComponent {
   nameInput:string = '';
   lastNameInput:string = '';
   index: number;
-  isEdit:boolean = false
+  modeEdit:number;
+  isEdit: boolean;
 
   ngOnInit(){
     this.index = this.route.snapshot.params['id']
-    if(this.index){
+    this.modeEdit = +this.route.snapshot.queryParams['modeEdit'];
+    if(this.modeEdit != null && this.modeEdit === 1){
       let person:Persona = this.personaServices.foundPerson(this.index);
       this.nameInput = person.nombre;
-      this.lastNameInput = person.apellido
+      this.lastNameInput = person.apellido;
       this.isEdit = true;
     }
   }
   addPerson() {
+
     let person = new Persona(this.nameInput, this.lastNameInput);
-    if(this.index){
+    if(this.modeEdit != null && this.modeEdit === 1){
       this.personaServices.editPerson(this.index, person)
     }else{
       this.personaServices.addPerson(person)
