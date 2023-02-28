@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FormularioComponent } from './components/personas/formulario/formulario.component';
-import { PersonasComponent } from './components/personas/personas.component';
 
 const routes: Routes = [
-  {path: '', component:PersonasComponent},
-  {path: 'personas', component: PersonasComponent},
-  {path: 'personas/agregar', component: FormularioComponent},
-  {path: 'personas/:id', component: FormularioComponent},
+  {
+    path: 'personas',
+    loadChildren: () => import('./components/personas/personas.module').then(m => m.PersonasModule)
+  },
+  {
+    path: '**',
+    redirectTo: 'personas'
+  }
 ]
 
 @NgModule({

@@ -22,6 +22,6 @@ export class PersonasComponent implements OnInit{
   }
 
   addPerson(){
-    this.router.navigate(['personas/agregar'])
+    this.router.navigate(['agregar'])
   }
 }
